@@ -1,0 +1,37 @@
+#tree-section {
+    overflow-y: hidden;
+}
+
+#export-open-dropdown,
+#suite-open-dropdown {
+    padding: 0
+}
+
+#export-open-dropdown div,
+#suite-open-dropdown div {
+    height: 30px;
+    line-height: calc(var(--left-size-item-height));
+    padding-left: 10px;
+}
+
+#actions {
+    flex: 1;
+    justify-content: flex-end;
+    margin-top: 0;
+    height: auto;
+}
+
+#workspace {
+    flex: 9;
+    overflow-y: scroll;
+    display: block;
+}
+
+.case_list {
+    flex-grow: 1;
+    overflow-y: hidden;
+}
+
+.case_list .header .plus {
+    visibility: visible;
+}

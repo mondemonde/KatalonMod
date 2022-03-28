@@ -90,6 +90,7 @@ function renderExtensionListContextMenu(id, name){
         deleteItem.addEventListener("click", function(event) {
             event.stopPropagation();
             if (confirm('Do you want to remove this extension script?')) {
+                debugger;
                 delete extensions[name];
                 resetExtensionsList();
             }
@@ -172,6 +173,7 @@ $(function() {
     document.getElementById("load-extension-hidden").addEventListener("change", function(event) {
         event.stopPropagation();
         for (var i = 0; i < this.files.length; i++) {
+            debugger
             readExtension(this.files[i]);
         }
         extensionScriptContainerOpen();

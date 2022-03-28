@@ -1,3 +1,12 @@
+
+/* #region  Req.js ------------------------------------------------------------*/
+
+//import { ReversibleCommandDecorator } from "../Common/Assets/Katalon5/panel/js/UI/models/command/reversible-command-decorator";
+
+//import { makeCaseSortable } from "../Common/Assets/Katalon5/panel/js/UI/view/testcase-grid/make-case-sortable";
+
+/* #endregion */
+
 /* #region  input - command.js ---------------------------------------------------------------------*/
 class clsInputCommand {
     static changeTdOfTable(event) {
@@ -2511,7 +2520,7 @@ $(function () {
 
     $('#test-suites-info').click(async function () {
 
-        
+       
         let scriptList = await get_doc();
         let rawScript1 = scriptList.Scripts[0].testSuite;
 
@@ -2519,11 +2528,6 @@ $(function () {
 
         console.log(decodedData);
         await createBlob(decodedData);
-
-        closeConfirm(false);
-        alert("You need to restart Katalon to reload script properly.");
-
-        window.close();
         return;
 
     });
@@ -4404,70 +4408,15 @@ Selenium.prototype.doScrapeHtmlSource = function (locator, text) {
         console.log(response);
         // toggleLoader();
     });
+
+
+
+
 };
 
 Selenium.prototype.getTextLength = function (locator) {
     return this.getText(locator).length;
 };
-
-Selenium.prototype.doTypeByGSelector = function (locator, text) {
-    
-    var element = this.page().findElement(locator);
-    
-    console.log(element.id);
-
-    let selector = '#' + element.id;
-
-    // use selector 
-    var valueToType = text ; 
-   var Myelement =document.querySelector(selector);
-   console.log(Myelement);
-   Myelement.value = valueToType;
-  // $(selector).trigger('change'); 
-
-  // simulateKeydown(32,false,false,false);
-   //$(selector).change();
-   
-   var press = jQuery.Event("keypress");
-press.altGraphKey = false;
-press.altKey = false;
-press.bubbles = true;
-press.cancelBubble = false;
-press.cancelable = true;
-press.charCode = 32;
-press.clipboardData = undefined;
-press.ctrlKey = false;
-press.currentTarget = $(selector)[0];
-press.defaultPrevented = false;
-press.detail = 0;
-press.eventPhase = 2;
-press.keyCode = 32;
-press.keyIdentifier = "";
-press.keyLocation = 0;
-press.layerX = 0;
-press.layerY = 0;
-press.metaKey = false;
-press.pageX = 0;
-press.pageY = 0;
-press.returnValue = true;
-press.shiftKey = false;
-press.srcElement = $(selector)[0];
-press.target = $(selector)[0];
-press.type = "keypress";
-press.view = Window;
-press.which = 32;
-
-$(selector).trigger(press);
-
-};
-
-function simulateKeydown (keycode,isCtrl,isAlt,isShift){
-    var e = new KeyboardEvent( "keydown", { bubbles:true, cancelable:true, char:String.fromCharCode(keycode), key:String.fromCharCode(keycode), shiftKey:isShift, ctrlKey:isCtrl, altKey:isAlt } );
-    Object.defineProperty(e, 'keyCode', {get : function() { return this.keyCodeVal; } });     
-    e.keyCodeVal = keycode;
-    document.dispatchEvent(e);
-}
-
 
 Selenium.prototype.doTypeRepeated = function (locator, text) {
     // All locator-strategies are automatically handled by "findElement"
